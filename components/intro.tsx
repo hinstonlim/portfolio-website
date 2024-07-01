@@ -9,6 +9,9 @@ import { HiDownload } from "react-icons/hi";
 import { FaGithubSquare } from "react-icons/fa";
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
+import { Button } from "./ui/moving-border";
+import { Highlight } from "./ui/hero-highlight";
+import { TextGenerateEffect } from "./ui/text-generate-effect";
 
 export default function Intro() {
   const { ref } = useSectionInView("Home", 0.5);
@@ -56,13 +59,15 @@ export default function Intro() {
           </motion.span>
         </div>
       </div>
-
       <motion.h1
         className="mb-10 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <span className="font-bold">Hello, I'm Hinston. </span>
+        <TextGenerateEffect
+          className="text-3xl font-bold text-black dark:text-white"
+          words="Hello, I'm Hinston."
+        />
       </motion.h1>
 
       <motion.h1
@@ -75,8 +80,10 @@ export default function Intro() {
         I specialize in{" "}
         <span className="italic underline">Frontend, Backend, and Mobile</span>{" "}
         development with my expertise in tech stack including{" "}
-        <span className="font-bold">NextJS | ExpressJS | Flutter</span>. I
-        provide high quality and scalable web and mobile solutions for
+        <Highlight className="text-black dark:text-white">
+          NextJS | ExpressJS | Flutter
+        </Highlight>
+        . I provide high quality and scalable web and mobile solutions for
         businesses and individuals.
       </motion.h1>
 
@@ -99,15 +106,19 @@ export default function Intro() {
           Contact me here{" "}
           <BsArrowRight className="opacity-70 group-hover:translate-x-1 transition" />
         </Link>
-
-        <a
-          className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10"
-          href="/Hinston's Resume.pdf"
-          download
+        <Button
+          // borderRadius="1.75rem"
+          // className="bg-white dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800"
+          className=" bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10"
         >
-          Download CV{" "}
-          <HiDownload className="opacity-60 group-hover:translate-y-1 transition" />
-        </a>
+          <a
+            href="/Hinston's Resume.pdf"
+            className="flex items-center gap-2 text-lg font-medium text-black dark:text-white"
+            download
+          >
+            Download CV <HiDownload className="opacity-60 " />
+          </a>
+        </Button>
 
         <a
           className="bg-white p-4 text-gray-700 hover:text-gray-950 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
