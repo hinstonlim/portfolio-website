@@ -15,6 +15,14 @@ export const metadata = {
   description: "Hinston is a experienced full-stack developer.",
 };
 
+const googleTagScript = `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0QLT6Y6HE7');
+`;
+
 export default function RootLayout({
   children,
 }: {
@@ -22,6 +30,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="!scroll-smooth">
+      <head>
+        {/* <!-- Google tag (gtag.js) --> */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-0QLT6Y6HE7"
+        ></script>
+        <script>{googleTagScript}</script>
+      </head>
       <body
         className={`${inter.className} bg-gray-50 text-gray-950 relative pt-28 sm:pt-36 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}
       >
