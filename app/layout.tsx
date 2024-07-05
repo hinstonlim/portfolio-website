@@ -15,6 +15,7 @@ export const metadata = {
   description: "Hinston is a experienced full-stack developer.",
 };
 
+const googleTagSrc = "https://www.googletagmanager.com/gtag/js?id=G-0QLT6Y6HE7";
 const googleTagScript = `
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -32,11 +33,12 @@ export default function RootLayout({
     <html lang="en" className="!scroll-smooth">
       <head>
         {/* <!-- Google tag (gtag.js) --> */}
+        <script async src={googleTagSrc} />
         <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-0QLT6Y6HE7"
-        ></script>
-        <script>{googleTagScript}</script>
+          dangerouslySetInnerHTML={{
+            __html: googleTagScript,
+          }}
+        />
       </head>
       <body
         className={`${inter.className} bg-gray-50 text-gray-950 relative pt-28 sm:pt-36 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}
