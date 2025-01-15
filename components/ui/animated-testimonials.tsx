@@ -1,6 +1,11 @@
 "use client";
 
-import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
+import {
+  IconArrowLeft,
+  IconArrowRight,
+  IconPlayerPause,
+  IconPlayerPlay,
+} from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -14,14 +19,16 @@ type Testimonial = {
   url: string;
   src: string;
 };
+
 export const AnimatedTestimonials = ({
   testimonials,
-  autoplay = false,
+  autoplay = true,
 }: {
   testimonials: Testimonial[];
   autoplay?: boolean;
 }) => {
   const [active, setActive] = useState(0);
+  const [isUserInteracted, setIsUserInteracted] = useState(false);
 
   const handleNext = () => {
     setActive((prev) => (prev + 1) % testimonials.length);
@@ -31,23 +38,37 @@ export const AnimatedTestimonials = ({
     setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
+  const handleUserNext = () => {
+    handleNext();
+    setIsUserInteracted(true);
+  };
+
+  const handleUserPrev = () => {
+    handlePrev();
+    setIsUserInteracted(true);
+  };
+
   const isActive = (index: number) => {
     return index === active;
   };
 
   useEffect(() => {
-    if (autoplay) {
-      const interval = setInterval(handleNext, 5000);
+    if (autoplay && !isUserInteracted) {
+      const interval = setInterval(handleNext, 3000);
       return () => clearInterval(interval);
     }
-  }, [autoplay]);
+  }, [autoplay, isUserInteracted]);
 
   const randomRotateY = () => {
-    return Math.floor(Math.random() * 21) - 10;
+    const randomY = [-8, -6, 6, 8];
+    return randomY[Math.floor(Math.random() * randomY.length)];
+    // console.log(Math.floor(Math.random() * 26) - 10);
+    // return Math.floor(Math.random() * 26) - 10;
   };
+
   return (
-    <div className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 pt-20">
-      <div className="relative grid grid-cols-1 md:grid-cols-2  gap-20">
+    <div className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 pt-10">
+      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-20">
         <div>
           <div className="relative h-80 w-full">
             <AnimatePresence>
@@ -157,14 +178,29 @@ export const AnimatedTestimonials = ({
           </motion.div>
           <div className="flex gap-4 pt-12">
             <button
-              onClick={handlePrev}
-              className="h-7 w-7 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"
+              onClick={() => {
+                setIsUserInteracted((prev) => !prev);
+                if (isUserInteracted) {
+                  handleNext();
+                }
+              }}
+              className="h-7 w-7 rounded-full bg-gray-300 dark:bg-neutral-800 flex items-center justify-center group/button"
+            >
+              {isUserInteracted ? (
+                <IconPlayerPlay className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:rotate-12 transition-transform duration-300" />
+              ) : (
+                <IconPlayerPause className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:rotate-12 transition-transform duration-300" />
+              )}
+            </button>
+            <button
+              onClick={handleUserPrev}
+              className="h-7 w-7 rounded-full bg-gray-300 dark:bg-neutral-800 flex items-center justify-center group/button"
             >
               <IconArrowLeft className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:rotate-12 transition-transform duration-300" />
             </button>
             <button
-              onClick={handleNext}
-              className="h-7 w-7 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"
+              onClick={handleUserNext}
+              className="h-7 w-7 rounded-full bg-gray-300 dark:bg-neutral-800 flex items-center justify-center group/button"
             >
               <IconArrowRight className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:-rotate-12 transition-transform duration-300" />
             </button>

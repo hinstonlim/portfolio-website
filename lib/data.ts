@@ -67,7 +67,12 @@ export const projectsData = [
     title: "Whaleader Logistics Apps",
     description:
       "An in-house used mobile apps for a logistics company that allows users to track their shipments and manage their account. The app is built using Dart with Flutter and integrates with our own API. The app is available on both iOS and Android platforms.",
-    tags: ["Mobile Apps Development", "Flutter", "State Management", "Riverpod"],
+    tags: [
+      "Mobile Apps Development",
+      "Flutter",
+      "State Management",
+      "Riverpod",
+    ],
     imageUrl: whaleaderMobileImg,
   },
   {
@@ -119,14 +124,14 @@ export const testimonialsData = [
     url: "https://www.qublico.com/",
     src: "/testimonials/qublico_logo.png",
   },
-  // {
-  //   quote: `"Hinston is professional and reliable. He has a great track record of delivering high-quality projects and are always willing to go the extra mile to ensure that our needs are met."`,
-  //   name: "Dr. Mohd Nadhir",
-  //   designation: "CEO",
-  //   company: "Intech Art Sdn Bhd",
-  //   url: "https://www.intech-art.com/",
-  //   src: "/testimonials/intech_logo.png",
-  // },
+  {
+    quote: `"Hinston and his team are superb! They delivered the job with minimal supervision. They ensure the customer satisfaction at the high level and even give more than they should to. Totally will use their service again in the near future."`,
+    name: "Dr. Mohd Nadhir",
+    designation: "CEO",
+    company: "Intech Art",
+    url: "https://www.intech-art.com/",
+    src: "/testimonials/intech_logo.png",
+  },
 ];
 
 export const recognitionsData = [

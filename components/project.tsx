@@ -1,9 +1,10 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { projectsData } from "@/lib/data";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Lens } from "./ui/lens";
 
 type ProjectProps = (typeof projectsData)[number];
 
@@ -20,6 +21,7 @@ export default function Project({
   });
   const scaleProgess = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
+  const [hovering, setHovering] = useState(false);
 
   return (
     <motion.div
@@ -49,24 +51,28 @@ export default function Project({
             ))}
           </ul>
         </div>
+        <div
+          className="sm:absolute sm:block rounded shadow-2xl top-8 -right-36 w-[28.25rem]
+            transition 
+            group-hover:scale-[1.04]
+            group-hover:-translate-x-3
+            group-hover:translate-y-3
+            group-hover:-rotate-2
 
-        <Image
-          src={imageUrl}
-          alt="Project I worked on"
-          quality={95}
-          className="sm:absolute sm:block top-8 -right-40 w-[28.25rem] rounded shadow-2xl
-        transition 
-        group-hover:scale-[1.04]
-        group-hover:-translate-x-3
-        group-hover:translate-y-3
-        group-hover:-rotate-2
+            group-even:group-hover:translate-x-3
+            group-even:group-hover:translate-y-3
+            group-even:group-hover:rotate-2
 
-        group-even:group-hover:translate-x-3
-        group-even:group-hover:translate-y-3
-        group-even:group-hover:rotate-2
-
-        group-even:right-[initial] group-even:-left-40"
-        />
+            group-even:right-[initial] group-even:-left-40"
+        >
+          <Lens hovering={hovering} setHovering={setHovering}>
+            <Image
+              src={imageUrl}
+              alt="Project I worked on"
+              quality={95}
+            />
+          </Lens>
+        </div>
       </section>
     </motion.div>
   );
