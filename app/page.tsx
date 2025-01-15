@@ -3,6 +3,7 @@ import Contact from "@/components/contact";
 import Experience from "@/components/experience";
 import Intro from "@/components/intro";
 import Projects from "@/components/projects";
+import Recognition from "@/components/recognition";
 import SectionDivider from "@/components/section-divider";
 import Skills from "@/components/skills";
 
@@ -13,7 +14,11 @@ export default function Home() {
       <SectionDivider />
       {/* <About /> */}
       <Projects />
+      <SectionDivider />
       <Skills />
+      <SectionDivider />
+      <Recognition />
+      <SectionDivider />
       <Experience />
       <Contact />
     </main>

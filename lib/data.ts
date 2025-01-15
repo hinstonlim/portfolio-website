@@ -28,12 +28,143 @@ export const links = [
     hash: "#skills",
   },
   {
+    name: "Recognition",
+    hash: "#recognition",
+  },
+  {
     name: "Experience",
     hash: "#experience",
   },
   {
     name: "Contact",
     hash: "#contact",
+  },
+] as const;
+
+export const projectsData = [
+  {
+    title: "Admin Panel integrated with Dashboard",
+    description:
+      "An admin panel which is used to manage the services and users of a vehicle services super app. The admin panel is built using Next.js, Tailwind CSS, and shadcn. It is integrated with the backend service built with Express.js and MongoDB.",
+    tags: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Tailwind",
+      "MongoDB",
+      "ExpressJS",
+    ],
+    imageUrl: asraAdminPanelImg,
+  },
+  {
+    title: "Vehicle Services Super Apps",
+    description:
+      "I developed two apps: for public users and service providers which acts a platform for clients to book vehicle-related services and for service providers to manage their services. The offered services include Chauffeur, Driver and Car Rental. Complex verification and integration are involved in this project.",
+    tags: ["Mobile Apps Development", "Flutter", "MongoDB", "ExpressJS"],
+    imageUrl: asraMobileImg,
+  },
+  {
+    title: "Whaleader Logistics Apps",
+    description:
+      "An in-house used mobile apps for a logistics company that allows users to track their shipments and manage their account. The app is built using Dart with Flutter and integrates with our own API. The app is available on both iOS and Android platforms.",
+    tags: ["Mobile Apps Development", "Flutter", "State Management", "Riverpod"],
+    imageUrl: whaleaderMobileImg,
+  },
+  {
+    title: "MyDailyPrice Multi-Platform System (Award Winning)",
+    description:
+      "A powerful one-stop center that provides comprehensive food price-related information and features. The integrated system includes user mobile apps, an admin panel, and backend services, all developed using React JS with Express JS. The project had won the Gold Medal award at The 8th International Invention Innovation Competition in Canada, iCAN 2023.",
+    tags: [
+      "Mobile Apps Development",
+      "Full-Stack",
+      "React",
+      "MongoDB",
+      "ExpressJS",
+      "Flutter",
+    ],
+    imageUrl: myDailyPriceMobileImg,
+  },
+] as const;
+
+export const skillsData = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "TypeScript",
+  "React",
+  "Next.js",
+  "Node.js",
+  "Git",
+  "TailwindCSS",
+  "MongoDB",
+  "GraphQL",
+  "ExpressJS",
+] as const;
+
+export const testimonialsData = [
+  {
+    quote: `"Hinston has delivered a stunning backend system that perfectly reflects our company operation while ensuring seamless functionality. The entire process was smooth, and they were highly responsive to our feedback. We highly recommend Hinston for anyone seeking a top-notch website development service."`,
+    name: "David",
+    designation: "Head of Distribution",
+    connector: "at",
+    company: "Seventyfive Creative",
+    url: "https://www.75creative.asia/",
+    src: "/testimonials/laihong_logo.jpg",
+  },
+  {
+    quote: `"Thanks for the expert help with the chat module! It's made a significant difference to the app's functionality and user experience."`,
+    name: "Ryan Soo",
+    designation: "Founder",
+    company: "Qublico Official Solution",
+    url: "https://www.qublico.com/",
+    src: "/testimonials/qublico_logo.png",
+  },
+  // {
+  //   quote: `"Hinston is professional and reliable. He has a great track record of delivering high-quality projects and are always willing to go the extra mile to ensure that our needs are met."`,
+  //   name: "Dr. Mohd Nadhir",
+  //   designation: "CEO",
+  //   company: "Intech Art Sdn Bhd",
+  //   url: "https://www.intech-art.com/",
+  //   src: "/testimonials/intech_logo.png",
+  // },
+];
+
+export const recognitionsData = [
+  {
+    name: "Ryan Soo",
+    title: "Founder of Qublico Official Solution",
+    description:
+      "Thanks for your expert help with the chat module! It's made a significant difference to the app's functionality and user experience.",
+  },
+  {
+    name: "Ryan Soo",
+    title: "Founder of Qublico Official Solution",
+    description:
+      "Thanks for your expert help with the chat module! It's made a significant difference to the app's functionality and user experience.",
+  },
+  {
+    name: "Ryan Soo",
+    title: "Founder of Qublico Official Solution",
+    description:
+      "Thanks for your expert help with the chat module! It's made a significant difference to the app's functionality and user experience.",
+  },
+  {
+    name: "Ryan Soo",
+    title: "Founder of Qublico Official Solution",
+    description:
+      "Thanks for your expert help with the chat module! It's made a significant difference to the app's functionality and user experience.",
+  },
+  {
+    name: "Ryan Soo",
+    title: "Founder of Qublico Official Solution",
+    description:
+      "Thanks for your expert help with the chat module! It's made a significant difference to the app's functionality and user experience.",
+  },
+  {
+    name: "Ryan Soo",
+    title: "Founder of Qublico Official Solution",
+    description:
+      "Thanks for your expert help with the chat module! It's made a significant difference to the app's functionality and user experience.",
   },
 ] as const;
 
@@ -85,64 +216,4 @@ export const experiencesData = [
     icon: React.createElement(MdOutlineDeveloperMode),
     date: "Jul 2021 - Jun 2022",
   },
-] as const;
-
-export const projectsData = [
-  {
-    title: "Admin Panel integrated with Dashboard",
-    description:
-      "An admin panel which is used to manage the services and users of a vehicle services super app. The admin panel is built using Next.js, Tailwind CSS, and shadcn. It is integrated with the backend service built with Express.js and MongoDB.",
-    tags: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "Tailwind",
-      "MongoDB",
-      "ExpressJS",
-    ],
-    imageUrl: asraAdminPanelImg,
-  },
-  {
-    title: "Vehicle Services Super Apps",
-    description:
-      "I developed two apps: for public users and service providers which acts a platform for clients to book vehicle-related services and for service providers to manage their services. The offered services include Chauffeur, Driver and Car Rental. Complex verification and integration are involved in this project.",
-    tags: ["Mobile Apps Development", "Flutter", "MongoDB", "ExpressJS"],
-    imageUrl: asraMobileImg,
-  },
-  {
-    title: "Whaleader Logistics Apps",
-    description:
-      "An in-house used mobile apps for a logistics company that allows users to track their shipments and manage their account. The app is built using Dart with Flutter and integrates with our own API. The app is available on both iOS and Android platforms.",
-    tags: ["Mobile Apps Dev", "Flutter", "State Management", "Riverpod"],
-    imageUrl: whaleaderMobileImg,
-  },
-  {
-    title: "MyDailyPrice Multi-Platform System (Award Winning)",
-    description:
-      "A powerful one-stop center that provides comprehensive food price-related information and features. The integrated system includes user mobile apps, an admin panel, and backend services, all developed using React JS with Express JS. The project had won the Gold Medal award at The 8th International Invention Innovation Competition in Canada, iCAN 2023.",
-    tags: [
-      "Mobile Apps",
-      "Full-Stack",
-      "React",
-      "MongoDB",
-      "ExpressJS",
-      "Flutter",
-    ],
-    imageUrl: myDailyPriceMobileImg,
-  },
-] as const;
-
-export const skillsData = [
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Node.js",
-  "Git",
-  "TailwindCSS",
-  "MongoDB",
-  "GraphQL",
-  "ExpressJS",
 ] as const;
