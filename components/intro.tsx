@@ -76,7 +76,7 @@ export default function Intro() {
         animate={{ opacity: 1, y: 0 }}
       >
         I'm a <span className="font-bold">full-stack software developer</span>{" "}
-        with more than <span className="font-bold">3 years</span> of experience.
+        with more than <span className="font-bold">4 years</span> of experience.
         I specialize in{" "}
         <span className="italic underline">Frontend, Backend, and Mobile</span>{" "}
         development with my expertise in tech stack including{" "}
